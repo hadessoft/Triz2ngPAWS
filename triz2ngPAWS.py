@@ -328,12 +328,19 @@ def genera_conexiones():
 def genera_localidades():    
     global LOCVAR
     LOCALIDADES = "/LTX\n"    
+    contador = 0
 
     # Generamos las localidades
-    for room in localidades:
+    for room in localidades:        
         LOCALIDADES += '/' + str(room['loc']) + "\n"
         LOCALIDADES += room['description'] + "\n"
-        LOCVAR += generaVariable(room['name'], '#define loc l') + '\t' + str(room['loc']) + "\n"
+
+        loc_definition = generaVariable(room['name'], '#define loc l')
+        if loc_definition in LOCVAR:
+            contador += 1
+            LOCVAR += generaVariable(room['name'], '#define loc l') + str(contador) + '\t' + str(room['loc']) + "\n"
+        else:
+            LOCVAR += generaVariable(room['name'], '#define loc l') + '\t' + str(room['loc']) + "\n"
 
     return LOCALIDADES
 
