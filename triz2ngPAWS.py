@@ -10,6 +10,7 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 import json
+from unidecode import unidecode
 
 ###########################################
 ### Sección de declaración de variables ###
@@ -255,6 +256,10 @@ def print_as_json(data):
     formatted_json = json.dumps(data, indent=4)
     print(formatted_json)
 
+def eliminar_acentos(texto):
+    texto_sin_acentos = unidecode(texto)
+    return texto_sin_acentos
+
 # Permite buscar una localidad por su id y devuelve el número real
 def buscar_loc_por_id(localidades, id_buscado):
     for item in localidades:
@@ -328,7 +333,7 @@ def genera_localidades():
     for room in localidades:
         LOCALIDADES += '/' + str(room['loc']) + "\n"
         LOCALIDADES += room['description'] + "\n"
-        LOCVAR += generaVariable(room['description'], '#define loc l') + '\t' + str(room['loc']) + "\n"
+        LOCVAR += generaVariable(room['name'], '#define loc l') + '\t' + str(room['loc']) + "\n"
 
     return LOCALIDADES
 
@@ -343,9 +348,9 @@ def genera_objetos():
     obj_index = 0
     for obj in objetos:
         attributes = ' '.join([attr for attr, value in obj.items() if value and attr.startswith('a')])
-        OBJETOS += f"/{obj_index}\t \t{obj['loc']-1}\t \t{obj['weight']}\t \t{obj['name'].upper()}\t\t_\t\tATTR {attributes}\n"
+        OBJETOS += f"/{obj_index}\t \t{obj['loc']-1}\t \t{obj['weight']}\t \t{eliminar_acentos(obj['name']).upper()}\t\t_\t\tATTR {attributes}\n"
         OBJNAMES += f"/{obj_index}\n{obj['name'].upper()}\n"
-        OBJVAR += generaVariable(obj['name'], '#define obj o') + '\t' + str(obj_index) + "\n"
+        OBJVAR += generaVariable(eliminar_acentos(obj['name']), '#define obj o') + '\t' + str(obj_index) + "\n"
         obj_index += 1
     return OBJETOS
 
@@ -446,3 +451,5 @@ with open(output_filename, 'w', encoding='utf-8') as output_file:
     print(PRO, file=output_file)
 
     print('ÉXITO: Fichero generado correctamente')
+
+
