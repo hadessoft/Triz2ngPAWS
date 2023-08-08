@@ -43,7 +43,7 @@
 
 Triz2ngPAWS versión 0.0.1b14 230806 (c) 2023 Tranqui69
 
-Triz2ngPAWS es un script de Python 3.x que permite generar un acrhivo .txp utilizado por ngPAWS de Uto a partir de un fichero generado con la utilidad de escritorio Trizbort. Esta herramienta solo trata de ayudar en el diseño inicial de las aventuras de texto y puede servir como referencia a la hora de iniciarse en el mundo del desarrollo.
+Triz2ngPAWS es un script de Python 3.x que permite generar un acrhivo .txp utilizado por ngPAWS de Uto a partir de un fichero creado con la utilidad de escritorio Trizbort. Esta herramienta solo trata de ayudar en el diseño inicial de las aventuras de texto y puede servir como referencia a la hora de iniciarse en el mundo del desarrollo.
 
 La herramienta está en una fase aún temprana de desarrollo y puede presentar errores.
 
