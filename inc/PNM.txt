@@ -1,0 +1,14 @@
+;#############################################################
+;#                         PRONOMBRES                         # 
+;#############################################################
+
+LO            2        pronoun
+LOS           2        pronoun
+SELO          2        pronoun
+SELOS         2        pronoun
+LA            2        pronoun
+LAS           2        pronoun
+SELA          2        pronoun
+SELAS         2        pronoun
+LE            2        pronoun
+LES           2        pronoun

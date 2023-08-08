@@ -1,0 +1,16 @@
+;#############################################################
+;#                         ADJETIVOS                         # 
+;#############################################################
+
+PEQUEÑO       2        adjective
+PEQUEÑA       2        adjective
+GRANDE        3        adjective
+VIEJO         4        adjective
+VIEJA         4        adjective
+NUEVO         5        adjective
+NUEVA         5        adjective
+DURO          6        adjective
+DURA          6        adjective
+SUAVE         7        adjective
+LARGO         9        adjective
+LARGA         9        adjective

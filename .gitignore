@@ -1,0 +1,15 @@
+*.exe
+*.ddb
+*.html
+*.sce
+*.dsf
+*.jpg
+*.json
+*.lnk
+*.url
+*.session
+*.trizbort
+*.txp
+*.start
+tmp
+dump.py

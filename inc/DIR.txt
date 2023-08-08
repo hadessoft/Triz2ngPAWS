@@ -1,0 +1,55 @@
+;#############################################################
+;#                        DIRECCIONES                        # 
+;# Movimientos, verbos y nombres < 14                        # 
+;#############################################################
+
+N             2        noun
+NORTE         2        noun
+S             3        noun
+SUR           3        noun
+E             4        noun
+ESTE          4        noun
+O             5        noun
+OESTE         5        noun
+W             5        noun 
+NE            6        noun
+NORESTE       6        noun
+NORDESTE      6        noun
+NW            7        noun
+NOROESTE      7        noun
+NO            7        noun
+SE            8        noun
+SURESTE       8        noun
+SUDESTE       8        noun
+SUROESTE      9        noun
+SW            9        noun
+SO            9        noun
+ARRIBA        10       noun
+U             10       noun
+UP            10       noun  
+ABAJO         11       noun
+D             11       noun
+DOWN          11       noun
+SUBIR         10       verb
+ASCENDER      10       verb  
+ASCIENDE      10       verb
+SUBETE        10       verb
+SUBE          10       verb
+SUBIRSE       10       verb
+SUBIRTE       10       verb
+BAJAR         11       verb
+BAJA          11       verb
+DESCENDER     11       verb  
+DESCIENDE     11       verb
+BAJATE        11       verb
+BAJARSE       11       verb
+BAJARTE       11       verb
+ENTRAR        12       verb
+SALIR         13       verb
+ENTRA         12       verb
+ENTER         12       verb
+INTRODUCET    12       verb  
+INTERNATE     12       verb
+INTERNARTE    12       verb  
+SAL           13       verb
+EXIT          13       verb

@@ -1,0 +1,39 @@
+;#############################################################
+;#                     MENSAJES USUARIO                      # 
+;#############################################################
+
+/MTX
+/0
+¡La balsa está desierta!
+
+
+/1000
+Salidas visibles: 
+/1001
+No hay salidas visibles.
+/1002
+/1003
+/1004
+al {ACTION|norte|norte}
+/1005
+al {ACTION|sur|sur}
+/1006
+al {ACTION|este|este}
+/1007
+al {ACTION|oeste|oeste}
+/1008
+al {ACTION|noreste|noreste}
+/1009
+al {ACTION|noroeste|noroeste}
+/1010
+al {ACTION|sureste|sureste}
+/1011
+al {ACTION|suroeste|suroeste}
+/1012
+{ACTION|arriba|arriba}
+/1013
+{ACTION|abajo|abajo}
+/1014
+{ACTION|dentro|dentro}
+/1015
+{ACTION|fuera|fuera}

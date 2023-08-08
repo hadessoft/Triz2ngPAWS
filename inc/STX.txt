@@ -1,0 +1,178 @@
+;#############################################################
+;#                    MENSAJES DEL SISTEMA                   # 
+;#############################################################
+
+/STX
+/0
+No puedes ver nada, está muy oscuro.
+
+/1
+Puedes ver: 
+/2
+¿Qué quieres hacer ahora?      
+/3
+¿Cuál es tu siguiente orden?
+/4
+¿Qué vas a hacer ahora?       
+/5
+Teclea tus órdenes
+/6
+¿Cómo? Por favor, prueba con otras palabras.
+
+/7
+No puedes ir en esa dirección.
+
+/8
+¿Perdón?
+
+/9
+Llevas: 
+/10
+ (puesto/a)
+/11
+ningún objeto.
+
+/12
+¿Seguro? 
+
+/13
+¿Juegas de nuevo? 
+
+/14
+Adiós...
+/15
+OK.
+
+/16
+Pulsa una tecla para continuar.
+
+/17
+Has realizado 
+/18
+ turno
+/19
+s
+/20
+.
+
+/21
+Tu puntuación es del 
+/22
+%.
+
+/23
+No llevas puesto eso.
+
+/24
+No puedes, ya llevas eso puesto.
+
+/25
+Ya tienes {OREF}.
+
+/26
+No ves eso por aquí.
+
+/27
+No puedes llevar más cosas.
+
+/28
+No tienes eso.
+
+/29
+Pero si ya llevas puesto {OREF}.
+
+/30        
+S
+/31        
+N
+/32
+Más...
+/33
+> 
+/34        ;Vacío. No se usa
+/35
+El tiempo pasa...
+
+/36
+Coges {OREF}.
+
+/37
+Te pones {OREF}.
+
+/38
+Te quitas {OREF}.
+
+/39
+Dejas {OREF}.
+
+/40
+No puedes ponerte {OREF}.
+
+/41
+No puedes quitarte {OREF}.
+
+/42
+No puedes quitarte {OREF}.  ¡Tienes demasiadas cosas en las manos!
+
+/43
+Desgraciadamente {OREF} pesa demasiado.
+
+/44
+Pones {OREF} en 
+/45
+Me temo que {OREF} no está en 
+/46
+, 
+/47
+ y¬
+/48
+.
+
+/49
+No tienes {OREF}.
+
+/50
+No llevas puesto {OREF}.
+
+/51
+.
+
+/52
+Eso no está en 
+/53
+ningún objeto
+
+/54
+Fichero no encontrado.
+
+/55
+Fichero corrupto.
+
+/56
+Error de lectura/escritura. Fichero no grabado.
+
+/57
+Directorio lleno.
+
+/58
+Introduce el nombre con el que grabaste la partida.
+/59
+No se encontró ninguna partida grabada con ese nombre. Confirma que el nombre es correcto y que realizaste dicha partida en este mismo navegador.
+/60
+Introduce el nombre con el que grabar la partida. Necesitarás recordar ese nombre para poder recuperarla posteriormente.
+/61
+
+
+/62
+¿Perdón? Por favor, prueba con otras palabras.
+
+/63 
+Aquí 
+/64
+está 
+/65
+están 
+/66
+dentro hay 
+/67
+encima hay 

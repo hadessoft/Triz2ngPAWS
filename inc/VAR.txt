@@ -1,0 +1,75 @@
+;#############################################################
+;#                         VARIABLES                         # 
+;#############################################################
+
+;#############################################################
+;#    Definiciones gráficos                                  #
+;#############################################################
+;
+; Ejemplo gráfico de localidad
+;##define pic loc1.jpg 1
+
+; Ejemplo gráfico suelto
+;##define grf escena.jpg 1
+
+;#############################################################
+;#    Definiciones sonido y música                           #
+;#############################################################
+; Ejemplo música de localidad
+;##define msc loc1.ogg 1
+
+; Ejemplo sonido o música suelto
+;##define snd sfx.aiff 2
+
+;#############################################################
+;#    Definiciones flags                                     #
+;#############################################################
+; Ejemplo flag
+;##define flg fDragonMuerto 100
+
+;#############################################################
+;#    Definiciones constantes                           #
+;#############################################################
+; Ejemplo constante
+;##define const ORO_INICIAL 50
+
+;#############################################################
+;#    Definiciones objetos                           #
+;#############################################################
+; Ejemplo objeto
+;##define obj oLlave 3
+;Variables_de_Objetos
+
+;#############################################################
+;#    Definiciones localidades                           #
+;#############################################################
+; Ejemplo localidad
+;##define loc lPuente 12
+;Variables_de_Localidades
+
+;#############################################################
+;#    Definiciones por defecto para atributos de objeto      #
+;#############################################################
+; 
+#define const aLight = 0
+#define const aWear = 1
+#define const aContainer = 2
+#define const aNPC  =3
+#define const aConcealed = 4
+#define const aEdible = 5
+#define const aDrinkable = 6
+#define const aEnterable = 7
+#define const aFemale = 8
+#define const aLockable = 9
+#define const aLocked = 10
+#define const aMale = 11
+#define const aNeuter = 12
+#define const aOpenable = 13
+#define const aOpen = 14
+#define const aPluralName = 15
+#define const aTransparent = 16
+#define const aScenery = 17
+#define const aSupporter = 18
+#define const aSwitchable = 19
+#define const aOn = 20
+#define const aStatic = 21

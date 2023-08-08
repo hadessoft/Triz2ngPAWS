@@ -1,0 +1,14 @@
+/PRO 2
+
+; ################################### PROCESO 2 ####################################
+; #                                                                                #
+; #  ngPAWS ejecuta el proceso 2 cada turno.                                       #
+; #                                                                                #
+; #  Se usa principalmente para implementar movimientos y acciones de PSIs,        #
+; #  eventos no controlados por el jugador como por ejemplo puentes que se hunden, #     
+; #  puertas que se abren, etc.                                                    #
+; #                                                                                #
+; ##################################################################################
+_ _
+ HOOK "PRO2"  ; «Back call» a el sistema de hooks. Por defecto no hace nada pero algunas librerías plugin podrían necesitarlo. No borrar.
+ 

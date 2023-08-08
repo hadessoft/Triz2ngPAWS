@@ -1,0 +1,12 @@
+;#############################################################
+;############    ngPAWS - LIBRERÍA DE INICIO     #############
+;############      Generada por Triz2ngPAWS      #############      
+;############            de Tranqui69            #############      
+;############              06/08/2023            #############      
+;#############################################################
+;#                                                           #
+;#         ESTA LIBRERÍA BASE ES DE DOMINIO PÚBLICO          # 
+;#          Ha sido creada por Uto y Radin, y cedida         # 
+;#    de manera que podáis decidir qué licencia aplicáis a   #
+;#             vuestra aventura sin restricciones.           #
+;#############################################################

@@ -1,0 +1,10 @@
+;#############################################################
+;#                          ADVERBIOS                        # 
+;#############################################################
+
+RAPIDAMENT    2        adverb
+LENTAMENTE    3        adverb
+SILENCIOSA    4        adverb
+RUIDOSAMEN    5        adverb
+CUIDADOSAM    6        adverb
+TRANQUILAM    6        adverb

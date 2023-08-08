@@ -1,0 +1,11 @@
+;#############################################################
+;#                         NOMBRES                           # 
+;#  Valor <20  = pueden ser usados como verbos               # 
+;#  Valor <50  = nombres propios, obviados por pronombres    # 
+;#############################################################
+
+I             14       noun
+INVEN         14       noun
+INVENTARIO    14       noun
+TODO          20       noun
+ANTORCHA      50       noun

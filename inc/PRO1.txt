@@ -1,0 +1,24 @@
+
+/PRO 1
+
+; ################################### PROCESO 1 ####################################
+; #                                                                                #
+; #  ngPAWS ejecuta el proceso 1 tras la descripción de localidad.                 #
+; #                                                                                #
+; #  Se usa principalmente para poner entradas que añadirán información adicional  #
+; #  a la descripción de la localidad actual. Por ejemplo, detalles sobre          #     
+; #  puertas abiertas, PSI presentes, etc.                                         #
+; #                                                                                #
+; ##################################################################################
+
+_ _
+ HOOK "PRO1"  ; «Back call» a el sistema de hooks. Por defecto no hace nada pero algunas librerías plugin podrían necesitarlo. No borrar.
+
+_  		 _
+ AT 0
+ BSET 12 5                      ; Spanish
+_        _        
+ ISLIGHT
+ LISTOBJ                        ;Lista los objetos
+ LISTNPC @38                    ;Lista las personas
+

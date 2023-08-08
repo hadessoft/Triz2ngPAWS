@@ -1,0 +1,24 @@
+;#############################################################
+;#                       PREPOSICIONES                       # 
+;#############################################################
+
+A             2        preposition
+AL            2        preposition
+DE            3        preposition
+DEL           3        preposition
+EN            4        preposition
+DENTRO        4        preposition ;DENTRO es un adverbio. DENTRO DE es una locución preposicional
+DESDE         5        preposition
+HACIA         6        preposition
+TRAS          7        preposition
+DETRAS        7        preposition ;DENTRÁS es un adverbio. DENTRÁS DE es una locución preposicional
+BAJO          8        preposition
+DEBAJO        8        preposition
+CON           9        preposition
+PARA          10       preposition
+POR           11       preposition
+EXCEPTO       12       preposition ;EXCEPTO es una conjunción
+FUERA         13       preposition ;FUERA es un adverbio
+DELANTE       14       preposition ;DELANTE es un adverbio. DELANTE DE es una locución preposicioonal
+ENTRE         15       preposition
+ENCIMA        16       preposition ;ENCIMA es un adverbio. ENCIMA DE es una locución preposional

@@ -1,0 +1,7 @@
+;#############################################################
+;#                        CONJUNCIONES                       # 
+;#############################################################
+
+Y             2        conjunction
+ENTONCES      2        conjunction ; A efectos del sistema. ENTONCES es un adverbio
+          
