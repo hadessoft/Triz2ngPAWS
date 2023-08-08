@@ -96,7 +96,7 @@ Distributed under the MIT License. See [LICENSE](https://github.com/hadessoft/Tr
 
 ## Autores
 
-* **Tranqui69** - *Tranquilino Rodiguez* - [Tranqui69](https://twitter.com/tranqui69) - *Diseño incial*
+* **Tranqui69** - *Tranquilino Rodríguez* - [Tranqui69](https://twitter.com/tranqui69) - *Diseño incial*
 
 ## Agradecimientos
 
