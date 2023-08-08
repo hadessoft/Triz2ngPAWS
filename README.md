@@ -55,7 +55,7 @@ Pyhton 3.x y Visual Studio Code
 
 ## Getting Started
 
-Instala Python, clona el repositorio y ejecuta el archivo, se generará un archivo *.txp con el mismo nombre que contenrá una base de datos de inicio con los parámetros deseados.
+Instala Python, clona el repositorio y ejecuta el archivo, se generará un archivo *.txp con el mismo nombre que contendrá una base de datos de inicio con los parámetros deseados.
 
 ### Prerequisites
 
