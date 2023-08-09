@@ -76,7 +76,7 @@ See the [open issues](https://github.com/hadessoft/Triz2ngPAWS/issues) for a lis
 
 ## Versiones
 
--0.0.2b11
+- 0.0.2b11
 
     Versión inicial.
 
