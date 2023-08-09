@@ -335,12 +335,12 @@ def genera_localidades():
         LOCALIDADES += '/' + str(room['loc']) + "\n"
         LOCALIDADES += room['description'] + "\n"
 
-        loc_definition = generaVariable(room['name'], '#define loc l')
+        loc_definition = generaVariable(eliminar_acentos(room['name']), '#define loc l')
         if loc_definition in LOCVAR:
             contador += 1
-            LOCVAR += generaVariable(room['name'], '#define loc l') + str(contador) + '\t' + str(room['loc']) + "\n"
+            LOCVAR += generaVariable(eliminar_acentos(room['name']), '#define loc l') + str(contador) + '\t' + str(room['loc']) + "\n"
         else:
-            LOCVAR += generaVariable(room['name'], '#define loc l') + '\t' + str(room['loc']) + "\n"
+            LOCVAR += generaVariable(eliminar_acentos(room['name']), '#define loc l') + '\t' + str(room['loc']) + "\n"
 
     return LOCALIDADES
 
@@ -364,7 +364,7 @@ def genera_objetos():
 
 ## Inicio del proceso
 print('**********************************************************')
-print('* Triz2ngPAWS versión 0.0.2b11 230808 (c) 2023 Tranqui69 *')     
+print('* Triz2ngPAWS versión 0.0.2b13 230809 (c) 2023 Tranqui69 *')     
 print('**********************************************************')
 
 # Comprobamos que se pase como parámetro un archivo con la extensión .trizbort

@@ -74,6 +74,22 @@ py triz2ngPAWS.py archive.trizbort
 
 See the [open issues](https://github.com/hadessoft/Triz2ngPAWS/issues) for a list of proposed features (and known issues).
 
+## Versiones
+
+-0.0.2b11
+
+    Versión inicial.
+
+- 0.0.2b12
+    
+    Corregido un error que hacía que las variables de las localidades apareciesen en blanco. (Se tomaba como referencia su descripión y no su nombre)
+    Corregido un error en la codificación de las variables de objetos con caracteres especiales.
+    Añadido un contador de control para que no se repitan las variables de localidades si estas tienen el mismo nombre.
+
+- 0.0.2b13    
+
+    Corregido un error en la codificación de las variables las localidades con caracteres especiales.
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -101,6 +117,7 @@ Distributed under the MIT License. See [LICENSE](https://github.com/hadessoft/Tr
 ## Agradecimientos
 
 * [Club de Aventuras AD](https://caad.club/)
+* [Trizbort](https://www.trizbort.com/)
 * [rockersuke](https://github.com/rockersuke/)
 * [Utodev](https://github.com/Utodev/ngPAWS/)
 
