@@ -100,7 +100,14 @@ See the [open issues](https://github.com/hadessoft/Triz2ngPAWS/issues) for a lis
     [x] Aparece un error al compilar con el pronombre LA (?¿) el compilador txtpaws lo marca como duplicado.
 
 - 0.0.4b1
+
     Solucionado el error del pronombre, lo causaba una localidad llamada A, al añadir el prefijo l de localidad, la confundía con el pronombre. Ahora los prefijos de localidad serán "loc_" y los de objetos "obj_" para mejorar su lectura y evitar duplicidades.
+
+- 0.0.5b1
+
+    Cambiada la funcion de sustitución de carácteres acentuados para evitar usar librerías externas innecesarias.
+    Corregido un problema que asignaba los objetos a una localidad inferior a la que les correspondía.
+    Añadida comprobación para evitar que las descripciones de las localidades queden en blanco. Ahora, si no hay descripción se añade el nombre de la localidad.
 
 ## Contributing
 

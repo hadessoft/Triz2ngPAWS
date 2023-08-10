@@ -10,7 +10,7 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 import json
-from unidecode import unidecode
+#from unidecode import unidecode
 
 ###########################################
 ### Sección de declaración de variables ###
@@ -327,7 +327,11 @@ def genera_localidades():
     # Generamos las localidades
     for room in localidades:        
         LOCALIDADES += '/' + str(room['loc']) + "\n"
-        LOCALIDADES += room['description'] + "\n"
+
+        if room['description'] is not None and room['description'] != '':
+            LOCALIDADES += room['description'] + "\n"
+        elif room['name'] is not None and room['name'] != '':
+            LOCALIDADES += room['name'] + "\n"
 
         loc_definition = generaVariable(eliminar_acentos(room['name']), '#define loc loc_')
         if loc_definition in LOCVAR:
@@ -351,7 +355,7 @@ def genera_objetos():
 
         NOMB, ADJ = descomponer_texto(eliminar_acentos(obj['name']).upper())
         attributes = ' '.join([attr for attr, value in obj.items() if value and attr.startswith('a')])
-        OBJETOS += f"/{obj_index}\t \t{obj['loc']-1}\t \t{obj['weight']}\t \t{NOMB}\t\t{ADJ}\t\tATTR {attributes}\n"
+        OBJETOS += f"/{obj_index}\t \t{obj['loc']}\t \t{obj['weight']}\t \t{NOMB}\t\t{ADJ}\t\tATTR {attributes}\n"
         OBJNAMES += f"/{obj_index}\n{obj['name'].upper()}\n"
         OBJVAR += generaVariable(eliminar_acentos(obj['name']), '#define obj obj_') + '\t' + str(obj_index) + "\n"
         obj_index += 1
@@ -375,8 +379,25 @@ def print_as_json(data):
     print(formatted_json)
 
 def eliminar_acentos(texto):
-    texto_sin_acentos = unidecode(texto)
-    return texto_sin_acentos
+    char_map = {
+        'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u',
+        'Á': 'A', 'É': 'E', 'Í': 'I', 'Ó': 'O', 'Ú': 'U',
+        'ñ': 'n', 'Ñ': 'N'
+        # Agrega más mapeos de caracteres según tus necesidades
+    }
+
+    result = []
+    for char in texto:
+        if char in char_map:
+            result.append(char_map[char])
+        else:
+            result.append(char)    
+    return ''.join(result)    
+
+#Probando a eliminar acentos sin usar librerias    
+#def eliminar_acentos_unidecode(texto):
+#    texto_sin_acentos = unidecode(texto)
+#    return texto_sin_acentos
 
 def descomponer_texto(texto):
     palabras = texto.split()
@@ -506,7 +527,6 @@ OTX = OBJNAMES # Descripción de los objetos
 PRO = genera_tabla_procesos() # Tabla de procesos
 
 VAR = genera_flags() # Flags y Variables
-
 
 ###########################################
 ### Exportamos el archivo TXP           ###
