@@ -329,12 +329,12 @@ def genera_localidades():
         LOCALIDADES += '/' + str(room['loc']) + "\n"
         LOCALIDADES += room['description'] + "\n"
 
-        loc_definition = generaVariable(eliminar_acentos(room['name']), '#define loc l')
+        loc_definition = generaVariable(eliminar_acentos(room['name']), '#define loc loc_')
         if loc_definition in LOCVAR:
             contador += 1
-            LOCVAR += generaVariable(eliminar_acentos(room['name']), '#define loc l') + str(contador) + '\t' + str(room['loc']) + "\n"
+            LOCVAR += generaVariable(eliminar_acentos(room['name']), '#define loc loc_') + str(contador) + '\t' + str(room['loc']) + "\n"
         else:
-            LOCVAR += generaVariable(eliminar_acentos(room['name']), '#define loc l') + '\t' + str(room['loc']) + "\n"
+            LOCVAR += generaVariable(eliminar_acentos(room['name']), '#define loc loc_') + '\t' + str(room['loc']) + "\n"
 
     return LOCALIDADES
 
@@ -353,7 +353,7 @@ def genera_objetos():
         attributes = ' '.join([attr for attr, value in obj.items() if value and attr.startswith('a')])
         OBJETOS += f"/{obj_index}\t \t{obj['loc']-1}\t \t{obj['weight']}\t \t{NOMB}\t\t{ADJ}\t\tATTR {attributes}\n"
         OBJNAMES += f"/{obj_index}\n{obj['name'].upper()}\n"
-        OBJVAR += generaVariable(eliminar_acentos(obj['name']), '#define obj o') + '\t' + str(obj_index) + "\n"
+        OBJVAR += generaVariable(eliminar_acentos(obj['name']), '#define obj obj_') + '\t' + str(obj_index) + "\n"
         obj_index += 1
 
         agregar_palabra_vocabulario(NOMB, 'noun')

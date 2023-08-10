@@ -9,3 +9,7 @@ INVEN         14       noun
 INVENTARIO    14       noun
 TODO          20       noun
 ANTORCHA      50       noun
+CAJA		51		noun
+CHAQUETON		52		noun
+LLAVE		53		noun
+PIEDRA		54		noun

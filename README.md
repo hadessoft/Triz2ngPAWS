@@ -97,8 +97,10 @@ See the [open issues](https://github.com/hadessoft/Triz2ngPAWS/issues) for a lis
     Se ha añadido un código al PROCESS 1 que mueve automáticamente al jugador a la localidad marcada como Inicio o, en su defecto a la primera que no es un contenedor. 
     Los objetos deberán definirse como NOMBRE ADJETIVO o NOMBRE a secas. Haciendo esto se añadirán al vocabulario en la zona designada para ello.
     [ ] Falta añadir comprobación de objetos duplicados
-    [ ] Aparece un error al compilar con el pronombre LA (?¿) el compilador txtpaws lo marca como duplicado.
+    [x] Aparece un error al compilar con el pronombre LA (?¿) el compilador txtpaws lo marca como duplicado.
 
+- 0.0.4b1
+    Solucionado el error del pronombre, lo causaba una localidad llamada A, al aladir el prefijo l de localidad, la confundía con el pronombre. Ahora los prefijos de localidad serán "loc_" y los de objetos "obj_" para mejorar su lectura y evitar duplicidades.
 
 ## Contributing
 
