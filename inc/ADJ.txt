@@ -14,6 +14,3 @@ DURA          6        adjective
 SUAVE         7        adjective
 LARGO         9        adjective
 LARGA         9        adjective
-MARRON		10		adjective
-REDONDA		11		adjective
-VERDE		12		adjective
