@@ -17,11 +17,12 @@ from unidecode import unidecode
 ###########################################
 
 localidades = []
+LOCINI = 0
 objetos  = []
 conexiones = []
 LOCVAR = ""
 OBJVAR = ""
-OBJNAMES = ""
+OBJNAMES = "/OTX\n"
 OBJETOS = ""
 
 # Rosa de los vientos con los puntos cardinales y las direcciones básicas.
@@ -126,7 +127,7 @@ def buscar_contenedores(data):
 
 # Función para extraer las localidades
 def buscar_localidades(contador_contenedores, root):
-
+    global LOCINI
     num_localidades_totales = len(root.findall('.//room')[:-1]) + contador_contenedores
 
     localidades = []
@@ -140,14 +141,23 @@ def buscar_localidades(contador_contenedores, root):
                 'description': f'Objeto Contenedor {loc}',
                 'loc': loc,
                 'id': '',
+                'isStartRoom': '',
                 'objects': [],
                 'exits': []
             }
             localidades.append(room_data)
         else:
+            
             # Obtener localidades desde root.findall('.//room')[:-1]
             room = root.findall('.//room')[loc - contador_contenedores]
-            objects_element = room.find('objects')
+
+            if LOCINI == 0:
+                LOCINI = loc
+
+            if room.get('isStartRoom', '') == "yes":
+                LOCINI = loc
+
+            objects_element = room.find('objects')            
             if objects_element is not None and objects_element.text is not None:
                 objects = [obj.strip() for obj in objects_element.text.split('|') if obj.strip()]
             else:
@@ -159,6 +169,7 @@ def buscar_localidades(contador_contenedores, root):
                 'description': room.get('description', f'Description of Location {loc}'),
                 'loc': loc,
                 'id': room.get('id', ''),
+                'isStartRoom': room.get('id', ''),                
                 'objects': objects,
                 'exits': []
             }
@@ -247,26 +258,6 @@ def procesar_objetos(objetos):
             
     return objetos
 
-###########################################
-### Funciones auxiliares                ###
-###########################################
-
-# Imprime un array como json
-def print_as_json(data):
-    formatted_json = json.dumps(data, indent=4)
-    print(formatted_json)
-
-def eliminar_acentos(texto):
-    texto_sin_acentos = unidecode(texto)
-    return texto_sin_acentos
-
-# Permite buscar una localidad por su id y devuelve el número real
-def buscar_loc_por_id(localidades, id_buscado):
-    for item in localidades:
-        if str(item.get('id')) == str(id_buscado):
-            return item.get('loc')
-    return None
-
 # Función para generar las variables de objetos y localidades
 def generaVariable(input_line, tipo):
     # Eliminar números y espacios alrededor
@@ -299,6 +290,9 @@ def genera_tabla_procesos():
     for header_filename in ["inc/PRO0.txt", "inc/PRO1.txt", "inc/PRO2.txt"]:
         with open(header_filename, 'r', encoding='utf-8') as header_file:
             PROCESOS += header_file.read() + "\n"
+    # Movemos al usuario a la localidad de inicio
+    PROCESOS = PROCESOS.replace(';Mover_a_inicio', '; *** AQUI SU CÓDIGO PARA INICIALIZAR FLAGS, ETC ***\n GOTO '+str(LOCINI)+'\n DESC')
+
     return PROCESOS
 
 def genera_sysmes():
@@ -354,13 +348,89 @@ def genera_objetos():
     # Generamos los objetos
     obj_index = 0
     for obj in objetos:
+
+        NOMB, ADJ = descomponer_texto(eliminar_acentos(obj['name']).upper())
         attributes = ' '.join([attr for attr, value in obj.items() if value and attr.startswith('a')])
-        OBJETOS += f"/{obj_index}\t \t{obj['loc']-1}\t \t{obj['weight']}\t \t{eliminar_acentos(obj['name']).upper()}\t\t_\t\tATTR {attributes}\n"
+        OBJETOS += f"/{obj_index}\t \t{obj['loc']-1}\t \t{obj['weight']}\t \t{NOMB}\t\t{ADJ}\t\tATTR {attributes}\n"
         OBJNAMES += f"/{obj_index}\n{obj['name'].upper()}\n"
         OBJVAR += generaVariable(eliminar_acentos(obj['name']), '#define obj o') + '\t' + str(obj_index) + "\n"
         obj_index += 1
+
+        agregar_palabra_vocabulario(NOMB, 'noun')
+
+        if ADJ != '' and ADJ != "_":
+            agregar_palabra_vocabulario(ADJ, 'adjective')
+
+
     return OBJETOS
 
+
+###########################################
+### Funciones auxiliares                ###
+###########################################
+
+# Imprime un array como json
+def print_as_json(data):
+    formatted_json = json.dumps(data, indent=4)
+    print(formatted_json)
+
+def eliminar_acentos(texto):
+    texto_sin_acentos = unidecode(texto)
+    return texto_sin_acentos
+
+def descomponer_texto(texto):
+    palabras = texto.split()
+    
+    if len(palabras) >= 2:
+        NOMB = palabras[0]
+        ADJ = palabras[1]
+    elif len(palabras) == 1:
+        NOMB = palabras[0]
+        ADJ = "_"
+    else:
+        NOMB = None
+        ADJ = None
+    
+    return NOMB, ADJ
+
+# Permite buscar una localidad por su id y devuelve el número real
+def buscar_loc_por_id(localidades, id_buscado):
+    for item in localidades:
+        if str(item.get('id')) == str(id_buscado):
+            return item.get('loc')
+    return None
+
+def agregar_palabra_vocabulario(palabra, categoria):
+    
+    if categoria == "noun":
+        archivo_nombre =  "inc/NOM.txt"
+    elif categoria == "adjective":
+        archivo_nombre = "inc/ADJ.txt"
+    else:
+        archivo_nombre = "inc/ERRORLOG.txt"
+
+    with open(archivo_nombre, "r+") as archivo:
+        lineas = archivo.readlines()
+        
+        for linea in lineas:
+            partes = linea.strip().split()
+            if partes:
+                palabra_existente = partes[0]
+                if palabra_existente == palabra:
+                    #print("La palabra ya existe en el archivo.")
+                    return
+        
+        if lineas:
+            ultima_linea = lineas[-1]
+            partes_ultima_linea = ultima_linea.strip().split()
+            ultimo_numero = int(partes_ultima_linea[1])
+            nuevo_numero = ultimo_numero + 1
+        else:
+            nuevo_numero = 1
+        
+        nueva_linea = f"{palabra}\t\t{nuevo_numero}\t\t{categoria}\n"
+        archivo.write(nueva_linea)
+        print(f"{palabra} se añadió al vocabulario.")
 
 ## Inicio del proceso
 print('**********************************************************')
@@ -417,14 +487,13 @@ with open("inc/HEAD.txt", 'r', encoding='utf-8') as header_file:
 
 genera_objetos()
 
-CTL = "" # Control (Deshuso)
+CTL = "/CTL\n" # Control (Deshuso)
 
 VOC = genera_vocabulario() # Vocabulario
 
 STX = genera_sysmes() # Mensajes del sistema
 
 MTX = genera_usrmes() # Mensajes del usuario
-
 
 LTX = genera_localidades() # Descripción de las localidades
 
@@ -448,6 +517,7 @@ with open(output_filename, 'w', encoding='utf-8') as output_file:
     
     print(CABECERA, file=output_file)
     print(VAR, file=output_file)
+    print(CTL, file=output_file)
     print(VOC, file=output_file)
     print(STX, file=output_file)
     print(MTX, file=output_file)
@@ -458,5 +528,3 @@ with open(output_filename, 'w', encoding='utf-8') as output_file:
     print(PRO, file=output_file)
 
     print('ÉXITO: Fichero generado correctamente')
-
-

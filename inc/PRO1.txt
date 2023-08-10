@@ -17,8 +17,8 @@ _ _
 _  		 _
  AT 0
  BSET 12 5                      ; Spanish
+;Mover_a_inicio
 _        _        
  ISLIGHT
  LISTOBJ                        ;Lista los objetos
  LISTNPC @38                    ;Lista las personas
-

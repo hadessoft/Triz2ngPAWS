@@ -11,7 +11,7 @@ DENTRO        4        preposition ;DENTRO es un adverbio. DENTRO DE es una locu
 DESDE         5        preposition
 HACIA         6        preposition
 TRAS          7        preposition
-DETRAS        7        preposition ;DENTRÁS es un adverbio. DENTRÁS DE es una locución preposicional
+DETRAS        7        preposition ;DETRÁS es un adverbio. DETRÁS DE es una locución preposicional
 BAJO          8        preposition
 DEBAJO        8        preposition
 CON           9        preposition

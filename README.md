@@ -90,6 +90,16 @@ See the [open issues](https://github.com/hadessoft/Triz2ngPAWS/issues) for a lis
 
     Corregido un error en la codificación de las variables las localidades con caracteres especiales.
 
+- 0.0.3b1
+
+    Añadido el segmento de /CTL que aparecía en blanco (al parecer no es opcional)
+    Añadida la cabecera /OTX que faltaba en la descripción de los objetos
+    Se ha añadido un código al PROCESS 1 que mueve automáticamente al jugador a la localidad marcada como Inicio o, en su defecto a la primera que no es un contenedor. 
+    Los objetos deberán definirse como NOMBRE ADJETIVO o NOMBRE a secas. Haciendo esto se añadirán al vocabulario en la zona designada para ello.
+    [ ] Falta añadir comprobación de objetos duplicados
+    [ ] Aparece un error al compilar con la preposición LA (?¿)
+    
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
