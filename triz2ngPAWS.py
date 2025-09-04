@@ -1,9 +1,7 @@
 #! python
 
 ###########################################
-#        Triz2ngPAWS by Tranqui69         #
-#      Club de Aventuras AD (CAAD)        #
-#           https://caad.club             @
+#        Triz2ngPAWS by Tranqui69  v.1    #
 ###########################################
 
 import re
@@ -272,7 +270,7 @@ def generaVariable(input_line, tipo):
 
 def genera_flags():
     VARIABLES = ""
-    with open("inc/VAR.txt", 'r', encoding='utf-8') as header_file:
+    with open("inc/VAR.txt", 'r', encoding='utf-8', errors='ignore') as header_file:
         VARIABLES = header_file.read()
         VARIABLES = VARIABLES.replace(";Variables_de_Localidades", LOCVAR)
         VARIABLES = VARIABLES.replace(";Variables_de_Objetos", OBJVAR)
@@ -281,14 +279,15 @@ def genera_flags():
 def genera_vocabulario():
     VOCABULARIO = "/VOC\n"
     for header_filename in ["inc/DIR.txt", "inc/NOM.txt", "inc/VER.txt", "inc/ADJ.txt",  "inc/ADV.txt", "inc/PRE.txt", "inc/PNM.txt", "inc/CNJ.txt"]:
-        with open(header_filename, 'r', encoding='utf-8') as header_file:
+        with open(header_filename, 'r', encoding='utf-8', errors='ignore') as header_file:
+
             VOCABULARIO += header_file.read() + "\n"
     return VOCABULARIO
 
 def genera_tabla_procesos():
     PROCESOS = ""
     for header_filename in ["inc/PRO0.txt", "inc/PRO1.txt", "inc/PRO2.txt"]:
-        with open(header_filename, 'r', encoding='utf-8') as header_file:
+        with open(header_filename, 'r', encoding='utf-8', errors='ignore') as header_file:
             PROCESOS += header_file.read() + "\n"
     # Movemos al usuario a la localidad de inicio
     PROCESOS = PROCESOS.replace(';Mover_a_inicio', '; *** AQUI SU CÓDIGO PARA INICIALIZAR FLAGS, ETC ***\n GOTO '+str(LOCINI)+'\n DESC')
@@ -297,13 +296,13 @@ def genera_tabla_procesos():
 
 def genera_sysmes():
     SYSMES = ""
-    with open("inc/STX.txt", 'r', encoding='utf-8') as header_file:
+    with open("inc/STX.txt", 'r', encoding='utf-8', errors='ignore') as header_file:
         SYSMES += header_file.read() 
     return SYSMES
 
 def genera_usrmes():
     USRMES = ""
-    with open("inc/MTX.txt", 'r', encoding='utf-8') as header_file:
+    with open("inc/MTX.txt", 'r', encoding='utf-8', errors='ignore') as header_file:
         USRMES += header_file.read() 
     return USRMES
 
@@ -499,7 +498,7 @@ objetos = procesar_objetos(objetos)
 ###########################################
 
 CABECERA = ""
-with open("inc/HEAD.txt", 'r', encoding='utf-8') as header_file:
+with open("inc/HEAD.txt", 'r', encoding='utf-8', errors='ignore') as header_file:
     CABECERA = header_file.read()
 
 ###########################################
@@ -533,7 +532,7 @@ VAR = genera_flags() # Flags y Variables
 ###########################################
 
 output_filename = filename.rsplit('.', 1)[0] + '.txp'
-with open(output_filename, 'w', encoding='utf-8') as output_file:
+with open(output_filename, 'w', encoding='utf-8', errors='ignore') as output_file:
     
     print(CABECERA, file=output_file)
     print(VAR, file=output_file)
